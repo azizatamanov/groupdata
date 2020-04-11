@@ -52,6 +52,12 @@
 !/src/*.dta
 !/src/*.txt
 
+!/src/**/*.do
+!/src/**/*.ado
+!/src/**/*.sthlp
+!/src/**/*.dta
+!/src/**/*.txt
+
 # Documentation
 !/doc/*.md
 !/doc/*.log
