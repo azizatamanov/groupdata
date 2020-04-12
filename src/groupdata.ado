@@ -892,6 +892,40 @@ preserve
 
         }
 		
+		*-----------------------------------------------------------------------------
+		*	GQ Lorenz Curve 
+		*-----------------------------------------------------------------------------
+
+        if ("`grouped'" != "") {
+            local a = `gqg'[1,1]
+            local b = `gqg'[1,2]
+            local c = `gqg'[1,3]
+        }
+        else {
+            local a = `gq'[1,1]
+            local b = `gq'[1,2]
+            local c = `gq'[1,3]
+        }
+		
+		*-----------------------------------------------------------------------------
+		*	Beta Lorenz Curve               
+		*-----------------------------------------------------------------------------
+
+        if ("`grouped'" != "") {
+            local aatheta   =   exp(`cofbg'[1,3])
+            local aagama    =   `cofbg'[1,1]
+            local aagama2   =   2*`aagama'
+            local aadelta   =   `cofbg'[1,2]
+            local aadelta2  =   2*`aadelta'
+        }
+        else {
+            local aatheta   =   exp(`cofb'[1,3])
+            local aagama    =   `cofb'[1,1]
+            local aagama2   =   2*`aagama'
+            local aadelta   =   `cofb'[1,2]
+            local aadelta2  =   2*`aadelta'
+        }
+		
         /**************************************
         ** Test
         **************************************
@@ -990,9 +1024,30 @@ preserve
         ** call sub routine
         **************************************
 
-	_subroutine_groupdata.ado
+	    _subroutine_groupdata				///
+						z(`z')              ///
+						 Mu(`mu')          	///
+						 type(`type') 		///
+						 `benchmark'		///
+						 `noelasticities'	///
+						 `nolorenz'			///
+						 `nochecks'			///
+						 min(`min')			///
+						 max(`max'')		///
+						 sd(`sd')			///
+						 lnsd(`lnsd')		///
+						 lnmu(`lnmu')		///
+						 a(`a')				///
+						 b(`b')				///
+						 c(`c')				///
+						 aatheta(`aatheta') 	///
+						 aagama(`aagama')		///
+						 aagama2(`aagama2')		///
+						 aadelta(`aadelta')		///
+						 aadelta2(`aadelta2')	
 	
-		
+return add
+	
 restore
 	
 end

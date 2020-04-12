@@ -7,19 +7,23 @@ program define _subroutine_groupdata, rclass
 
     version 8.0
 
-    syntax varlist(numeric min=1 max=1)         ///
-                 [in] [if]                      ///
-                 [fweight aweight pweight]      ///
+    syntax          							///
                  ,                              ///
                          z(real)                ///
-                    [							///
 						 Mu(real -99)          	///
-                         GROUPed                ///
+						 lnsd(real)				///
+						 lnmu(real)				///
+						 a(real)				///
+						 b(real)				///
+						 c(real)				///
+ 						 aatheta(real) 			///
+						 aagama(real)			///
+						 aagama2(real)			///
+						 aadelta(real)			///
+						 aadelta2(real)			///
+                    [							///
                          BINs(real -99)         ///
-                         REGress				///
 						 BENCHmark				///
-						 NOFIGures				///
-						 UNITRECord				///
 						 type(string) 			///
 						 NOElasticities			///
 						 NOLorenz				///
@@ -27,7 +31,6 @@ program define _subroutine_groupdata, rclass
 						 min(string)			///
 						 max(string)			///
 						 sd(real -99)			///
-						 debug					///
 					]
 
 
